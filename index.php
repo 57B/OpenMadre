@@ -19,6 +19,10 @@ $videos = $stmt->fetchAll();
         .sidebar-link { display: block; padding: 5px 0; color: #666; text-decoration: none; font-size: 13px; }
         .sidebar-link:hover { color: #167ac6; text-decoration: underline; }
         .user-pfp-small { width: 24px; height: 24px; vertical-align: middle; border-radius: 2px; margin-right: 8px; }
+        .video-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 56px; }
+        .search-box { flex-grow: 0.5; display: flex; margin-left: 25px; width: 700px; }
+        .video-card { font-size: 12px; height: 110px; }
+        .main-content { flex: 1; background: #fff; padding: 15px; border: 1px solid #e8e8e8; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); height: 1400px; }
     </style>
 </head>
 <body>
@@ -74,7 +78,7 @@ $videos = $stmt->fetchAll();
 
     <!-- Main Video Grid -->
     <div class="main-content">
-        <h2 style="font-size: 18px; margin-top: 0; border-bottom: 1px solid #e8e8e8; padding-bottom: 10px;">Recommended</h2>
+        <h2 style="font-size: 18px; margin-top: 0; border-bottom: 1px solid #e8e8e8; padding-bottom: 20px;">Recommended</h2>
         
         <div class="video-grid">
             <?php if (count($videos) > 0): ?>
