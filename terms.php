@@ -1,5 +1,6 @@
 <?php require_once 'config.php'; ?>
 <!DOCTYPE html>
+<style> .search-box { flex-grow: 0.5; display: flex; margin-left: 25px; width: 700px; } </style>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

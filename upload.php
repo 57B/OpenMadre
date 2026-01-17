@@ -73,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         .form-group input[type="text"], .form-group textarea { width: 100%; padding: 8px; border: 1px solid #ccc; box-sizing: border-box; }
         .form-group textarea { height: 100px; resize: none; }
         .requirements { font-size: 11px; color: #666; margin-top: 5px; }
+        .search-box { flex-grow: 0.5; display: flex; margin-left: 25px; width: 700px; }
     </style>
 </head>
 <body>

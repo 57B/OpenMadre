@@ -58,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         .input-group input { width: 100%; padding: 8px; border: 1px solid #ccc; box-sizing: border-box; }
         .toggle-form { text-align: center; margin-top: 15px; font-size: 12px; }
         .toggle-form a { color: #167ac6; text-decoration: none; cursor: pointer; }
+        .search-box { flex-grow: 0.5; display: flex; margin-left: 25px; width: 700px; }
     </style>
 </head>
 <body>

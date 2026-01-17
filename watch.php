@@ -64,6 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['comment_body'])) {
         .comment-pfp { width: 48px; height: 48px; object-fit: cover; }
         .star-rating { color: #f1c40f; font-size: 14px; }
         .reply-box { margin-left: 58px; font-size: 12px; }
+        .search-box { flex-grow: 0.5; display: flex; margin-left: 25px; width: 700px; }
     </style>
 </head>
 <body>
@@ -136,8 +137,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['comment_body'])) {
 
     <div class="sidebar-area">
         <h4 style="margin-top:0;">Suggested Videos</h4>
-        <!-- Suggested videos logic would go here -->
-        <p style="font-size:11px; color:#666;">Up next...</p>
+        <?php
+        $sStmt = $pdo->prepare("SELECT videos.*, users.username FROM videos 
+                                JOIN users ON videos.user_id = users.id 
+                                WHERE videos.id != ? 
+                                ORDER BY RAND() LIMIT 10");
+        $sStmt->execute([$video_id]);
+        while ($suggest = $sStmt->fetch()): ?>
+            <div style="display:flex; gap:10px; margin-bottom:10px;">
+                <a href="watch.php?v=<?php echo $suggest['id']; ?>">
+                    <img src="uploads/thumbnails/<?php echo htmlspecialchars($suggest['thumbnail_name']); ?>" style="width:120px; height:68px; object-fit:cover; border:1px solid #ccc;">
+                </a>
+                <div style="font-size:12px;">
+                    <a href="watch.php?v=<?php echo $suggest['id']; ?>" style="text-decoration:none; color:#167ac6; font-weight:bold; display:block;">
+                        <?php echo htmlspecialchars($suggest['title']); ?>
+                    </a>
+                    <span style="color:#666; font-size:11px;">by <?php echo htmlspecialchars($suggest['username']); ?></span><br>
+                    <span style="color:#999; font-size:11px;"><?php echo number_format($suggest['views']); ?> views</span>
+                </div>
+            </div>
+        <?php endwhile; ?>
     </div>
 </div>
 

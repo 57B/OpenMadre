@@ -66,6 +66,7 @@ $videos = $vStmt->fetchAll();
         .nav-tab { padding: 10px; cursor: pointer; font-weight: bold; color: #666; text-decoration: none; border-bottom: 3px solid transparent; }
         .nav-tab.active { color: #333; border-bottom-color: #167ac6; }
         .manager-box { background: #fff; border: 1px solid #e8e8e8; padding: 15px; margin-top: 20px; border-top: 3px solid #cc181e; }
+        .search-box { flex-grow: 0.5; display: flex; margin-left: 25px; width: 700px; }
     </style>
 </head>
 <body>
